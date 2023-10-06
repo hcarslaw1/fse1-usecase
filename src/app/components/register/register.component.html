@@ -6,28 +6,38 @@
     <h1 class="col-sm mt-5">
       <form (ngSubmit)="submit()" [formGroup]="registerForm">
         <input
-          formControlName="username"
+          [formControl]="username"
           type="text"
           class="form-control"
           placeholder="username"
           required="test" />
         <input
-          formControlName="password"
+          [formControl]="password"
           type="password"
           class="form-control mt-2"
           placeholder="password" />
         <input
-          formControlName="firstName"
+          [formControl]="confirmPassword"
+          type="password"
+          class="form-control mt-2"
+          placeholder="re-enter password" />
+        <input
+          [formControl]="firstName"
           type="text"
           class="form-control mt-2"
           placeholder="first name" />
         <input
-          formControlName="lastName"
+          [formControl]="lastName"
           type="text"
           class="form-control mt-2"
           placeholder="last name" />
         <input
-          formControlName="contactNumber"
+          [formControl]="email"
+          type="text"
+          class="form-control mt-2"
+          placeholder="email address" />
+        <input
+          [formControl]="contactNumber"
           type="text"
           class="form-control mt-2"
           placeholder="contact number" />
@@ -35,5 +45,7 @@
       </form>
     </h1>
   </div>
-  <!-- <div *ngIf="displayError" class="alert alert-danger mt-5">Invalid Login</div> -->
+  <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
+    {{ displayError }}
+  </div>
 </div>

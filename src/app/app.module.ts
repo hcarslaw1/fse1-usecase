@@ -12,6 +12,7 @@ import { UpdateProductComponent } from './components/update-product/update-produ
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RouterModule } from '@angular/router';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     UpdateProductComponent,
     AddProductComponent,
     LogoutComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
