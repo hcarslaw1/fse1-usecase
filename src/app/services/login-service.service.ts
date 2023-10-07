@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
-  userStore: [User] = [
+  userStore: User[] = [
     {
       id: 1,
       loginId: 'admin',

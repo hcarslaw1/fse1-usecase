@@ -1,1 +1,40 @@
-<p>add-product works!</p>
+<div class="container">
+  <div class="row">
+    <h1 class="col-sm mt-5">Add a product</h1>
+  </div>
+  <div class="row">
+    <h1 class="col-sm mt-5">
+      <form (ngSubmit)="submit()" [formGroup]="registerForm">
+        <input
+          [formControl]="name"
+          type="text"
+          class="form-control"
+          placeholder="product name" />
+        <input
+          [formControl]="description"
+          type="text"
+          class="form-control mt-2"
+          placeholder="description" />
+        <input
+          [formControl]="price"
+          type="number"
+          class="form-control mt-2"
+          placeholder="price" />
+        <input
+          [formControl]="features"
+          type="text"
+          class="form-control mt-2"
+          placeholder="features" />
+        <input
+          [formControl]="status"
+          type="password"
+          class="form-control mt-2"
+          placeholder="status" />
+        <input type="submit" value="Add product" class="btn btn-primary" />
+      </form>
+    </h1>
+  </div>
+  <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
+    {{ displayError }}
+  </div>
+</div>
