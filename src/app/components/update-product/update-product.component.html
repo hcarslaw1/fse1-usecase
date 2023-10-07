@@ -1,1 +1,27 @@
-<p>update-product works!</p>
+<div class="container">
+  <div class="row">
+    <h1 class="col-sm mt-5">Add a product</h1>
+  </div>
+  <div *ngFor="let product of products" class="row">
+    <h3 class="col-md">Product Name: {{ product.name }}</h3>
+    <p class="">Product description: {{ product.description }}</p>
+    <p class="">Price: {{ product.price }}</p>
+    <p class="">Product features: {{ product.features }}</p>
+    <p class="col-sm">Product status: {{ product.status }}</p>
+    <p class="col-sm">Stock number: {{ product.stockAmount }}</p>
+
+    <br />
+    <form (ngSubmit)="submit(product.name)" [formGroup]="productForm">
+      <p class="col-sm">Change stock amount:</p>
+      <input
+        [formControl]="stockAmount"
+        type="number"
+        class="form-control mt-2"
+        placeholder="New stock amount" />
+      <input type="submit" value="Update stock" class="btn btn-primary" />
+    </form>
+  </div>
+  <!-- <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
+      {{ displayError }}
+    </div> -->
+</div>

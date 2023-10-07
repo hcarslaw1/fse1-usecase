@@ -15,34 +15,35 @@ export class AddProductComponent implements OnInit {
   price = new FormControl(0, [Validators.required]);
   features = new FormControl([''], [Validators.required]);
   status = new FormControl('', [Validators.required]);
+  stockAmount = new FormControl(0, [Validators.required]);
 
-  registerForm = this._fb.group({
+  productForm = this._fb.group({
     name: this.name,
     description: this.description,
     price: this.price,
     features: this.features,
-    status: this.status,
+    stockAmount: this.stockAmount,
   });
 
   displayError: undefined | string = undefined;
 
   submit() {
-    if (!this.registerForm.valid) {
+    if (!this.productForm.valid) {
       this.displayError = 'Invalid product details';
       return;
     } else if (
-      !this._productService.isNameUnique(this.registerForm.value.name!)
+      !this._productService.isNameUnique(this.productForm.value.name!)
     ) {
       this.displayError = 'Product name must be unique';
       return;
     }
 
     this._productService.addProduct(
-      this.registerForm.value.name!,
-      this.registerForm.value.description!,
-      this.registerForm.value.price!,
-      this.registerForm.value.features!,
-      this.registerForm.value.status!
+      this.productForm.value.name!,
+      this.productForm.value.description!,
+      this.productForm.value.price!,
+      this.productForm.value.features!,
+      this.productForm.value.stockAmount!
     );
 
     this._router.navigateByUrl('login');
@@ -55,7 +56,7 @@ export class AddProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm.valueChanges.subscribe(result => {
+    this.productForm.valueChanges.subscribe(result => {
       this.displayError = undefined;
     });
   }

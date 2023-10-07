@@ -1,1 +1,15 @@
-<p>view-products works!</p>
+<div class="container">
+  <div class="row">
+    <h1 class="col-sm mt-5">View products</h1>
+  </div>
+  <div *ngFor="let product of products" class="row">
+    <h3 class="col-md">{{ product.name }}</h3>
+    <p class="">Description: {{ product.description }}</p>
+    <p value="" class="">Price: {{ product.price }}</p>
+    <p class="">Product features: {{ product.features }}</p>
+    <p class="col-sm">Product status: {{ product.status }}</p>
+  </div>
+  <!-- <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
+        {{ displayError }}
+      </div> -->
+</div>

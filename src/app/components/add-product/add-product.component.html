@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <h1 class="col-sm mt-5">
-      <form (ngSubmit)="submit()" [formGroup]="registerForm">
+      <form (ngSubmit)="submit()" [formGroup]="productForm">
         <input
           [formControl]="name"
           type="text"
@@ -26,8 +26,8 @@
           class="form-control mt-2"
           placeholder="features" />
         <input
-          [formControl]="status"
-          type="password"
+          [formControl]="stockAmount"
+          type="number"
           class="form-control mt-2"
           placeholder="status" />
         <input type="submit" value="Add product" class="btn btn-primary" />
