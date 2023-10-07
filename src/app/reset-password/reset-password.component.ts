@@ -9,10 +9,12 @@ import { LoginService } from '../services/login-service.service';
   styleUrls: ['./reset-password.component.sass'],
 })
 export class ResetPasswordComponent implements OnInit {
+  username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
   confirmPassword = new FormControl('', [Validators.required]);
 
   registerForm = this._fb.group({
+    username: this.username,
     password: this.password,
     confirmPassword: this.confirmPassword,
   });
@@ -29,9 +31,17 @@ export class ResetPasswordComponent implements OnInit {
     ) {
       this.displayError = 'Passwords do not match';
       return;
+    } else if (
+      this._loginService.isLoginIdUnique(this.registerForm.value.username!)
+    ) {
+      this.displayError = 'Username must exist';
+      return;
     }
 
-    this._loginService.resetPassword(this.registerForm.value.password!);
+    this._loginService.resetPassword(
+      this.registerForm.value.username!,
+      this.registerForm.value.password!
+    );
 
     this._router.navigateByUrl('login');
   }

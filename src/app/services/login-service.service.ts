@@ -18,16 +18,7 @@ export class LoginService {
     },
   ];
 
-  loggedInUser: User = {
-    id: 0,
-    loginId: '',
-    password: '',
-    isAdmin: false,
-    firstName: '',
-    lastName: '',
-    contactNumber: '',
-    email: '',
-  };
+  loggedInUser: User | undefined = undefined;
 
   isEmailUnique = (email: string) => {
     return this.userStore.find(user => user.email === email) === undefined;
@@ -37,9 +28,18 @@ export class LoginService {
     return this.userStore.find(user => user.loginId === loginId) === undefined;
   };
 
-  resetPassword = (newPassword: string) => {
-    this.loggedInUser.password = newPassword;
-    this.userStore[this.loggedInUser.id - 1] = this.loggedInUser;
+  resetPassword = (username: string, newPassword: string) => {
+    if (this.loggedInUser !== undefined) {
+      this.loggedInUser.password = newPassword;
+      this.userStore[this.loggedInUser.id - 1] = this.loggedInUser;
+    } else {
+      const user = this.userStore.find(user => user.loginId === username);
+
+      if (user !== undefined) {
+        user.password = newPassword;
+        this.userStore[user.id - 1] = user;
+      }
+    }
   };
 
   retrieveUser = (loginId: string, password: string) => {

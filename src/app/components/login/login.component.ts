@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
 
   displayError = false;
 
+  resetPassword() {
+    this._router.navigateByUrl('reset-password');
+  }
+
   submit() {
     // const loginResult = this._loginService.login(
     //   this.loginForm.value.username!,
@@ -36,7 +40,7 @@ export class LoginComponent implements OnInit {
     if (user === undefined) {
       this.displayError = true;
     } else if (user.isAdmin) {
-      this._router.navigateByUrl('update-product');
+      this._router.navigateByUrl('update-products');
     } else {
       this._router.navigateByUrl('view-products');
     }

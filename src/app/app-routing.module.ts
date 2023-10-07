@@ -15,8 +15,7 @@ const routes: Routes = [
   { path: 'update-products', component: UpdateProductComponent },
   { path: 'add-product', component: AddProductComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'reset-passowrd', component: ResetPasswordComponent },
-
+  { path: 'reset-password', component: ResetPasswordComponent },
 ];
 
 @NgModule({
