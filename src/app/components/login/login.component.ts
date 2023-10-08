@@ -24,6 +24,10 @@ export class LoginComponent implements OnInit {
     this._router.navigateByUrl('reset-password');
   }
 
+  register() {
+    this._router.navigateByUrl('register');
+  }
+
   submit() {
     // const loginResult = this._loginService.login(
     //   this.loginForm.value.username!,

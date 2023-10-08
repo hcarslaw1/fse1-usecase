@@ -1,6 +1,14 @@
 <div class="container">
   <div class="row">
     <h1 class="col-sm mt-5">Add a product</h1>
+    <div class="col-sm mt-5">
+      <input
+        (click)="signOut()"
+        type="submit"
+        id="reset"
+        value="Sign Out"
+        class="btn btn-primary" />
+    </div>
   </div>
   <div class="row">
     <h1 class="col-sm mt-5">
@@ -37,4 +45,10 @@
   <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
     {{ displayError }}
   </div>
+  <input
+    (click)="updateProduct()"
+    type="submit"
+    id="reset"
+    value="Update product"
+    class="btn btn-primary" />
 </div>

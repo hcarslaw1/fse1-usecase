@@ -1,6 +1,14 @@
 <div class="container">
   <div class="row">
-    <h1 class="col-sm mt-5">Add a product</h1>
+    <h1 class="col-sm mt-5">Update products</h1>
+    <div class="col-sm mt-5">
+      <input
+        (click)="signOut()"
+        type="submit"
+        id="reset"
+        value="Sign Out"
+        class="btn btn-primary" />
+    </div>
   </div>
   <div *ngFor="let product of products" class="row">
     <h3 class="col-md">Product Name: {{ product.name }}</h3>
@@ -21,6 +29,12 @@
       <input type="submit" value="Update stock" class="btn btn-primary" />
     </form>
   </div>
+  <input
+    (click)="addProduct()"
+    type="submit"
+    id="reset"
+    value="Add product"
+    class="btn btn-primary" />
   <!-- <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
       {{ displayError }}
     </div> -->

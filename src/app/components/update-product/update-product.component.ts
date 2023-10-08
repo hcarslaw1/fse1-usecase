@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login-service.service';
 import { ProductService } from 'src/app/services/product-service.service';
 
 @Component({
@@ -18,6 +19,15 @@ export class UpdateProductComponent implements OnInit {
   products = this._productService.getProducts();
   showForm = false;
 
+  signOut() {
+    this._loginService.signOut();
+    this._router.navigateByUrl('login');
+  }
+
+  addProduct() {
+    this._router.navigateByUrl('add-product');
+  }
+
   submit = (productName: string) => {
     this._productService.updateStockAmount(
       productName,
@@ -29,6 +39,7 @@ export class UpdateProductComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _productService: ProductService,
+    private _loginService: LoginService,
     private _router: Router
   ) {}
 

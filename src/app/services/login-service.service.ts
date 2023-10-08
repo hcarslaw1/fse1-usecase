@@ -28,6 +28,10 @@ export class LoginService {
     return this.userStore.find(user => user.loginId === loginId) === undefined;
   };
 
+  signOut = () => {
+    this.loggedInUser = undefined;
+  };
+
   resetPassword = (username: string, newPassword: string) => {
     if (this.loggedInUser !== undefined) {
       this.loggedInUser.password = newPassword;

@@ -49,9 +49,19 @@ export class AddProductComponent implements OnInit {
     this._router.navigateByUrl('login');
   }
 
+  signOut() {
+    this._loginService.signOut();
+    this._router.navigateByUrl('login');
+  }
+
+  updateProduct() {
+    this._router.navigateByUrl('update-products');
+  }
+
   constructor(
     private _fb: FormBuilder,
     private _productService: ProductService,
+    private _loginService: LoginService,
     private _router: Router
   ) {}
 
