@@ -12,11 +12,6 @@ export class ViewProductsComponent implements OnInit {
   products = this._productService.getProducts();
   filteredProducts = this.products;
 
-  signOut() {
-    this._loginService.signOut();
-    this._router.navigateByUrl('login');
-  }
-
   filterResults(searchValue: string) {
     if (!searchValue) {
       this.filteredProducts = this.products;
@@ -33,5 +28,9 @@ export class ViewProductsComponent implements OnInit {
     private _loginService: LoginService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this._loginService.loggedInUser === undefined) {
+      this._router.navigateByUrl('login');
+    }
+  }
 }

@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<router-outlet>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-sm">
+        <h1 id="title" class="text-center">{{ title }}</h1>
+      </div>
+      <div class="col-1 pull-right">
+        <input
+          *ngIf="isUserLoggedIn()"
+          id="signOut"
+          (click)="signOut()"
+          type="submit"
+          id="reset"
+          value="Sign Out"
+          class="btn btn-primary" />
+      </div>
+    </div>
+  </div>
+</router-outlet>

@@ -29,13 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    // const loginResult = this._loginService.login(
-    //   this.loginForm.value.username!,
-    //   this.loginForm.value.password!
-    // );
-
-    // if(this.loginForm.)
-
     const user = this._loginService.login(
       this.loginForm.value.username!,
       this.loginForm.value.password!
@@ -48,22 +41,6 @@ export class LoginComponent implements OnInit {
     } else {
       this._router.navigateByUrl('view-products');
     }
-
-    // this._loginService
-    //   .login(this.loginForm.value.username!, this.loginForm.value.password!)
-    //   .subscribe(
-    //     result => {
-    //       this._router.navigate
-    //     },
-    //     err => {
-    //       this.displayError = true;
-    //     }
-    //   );
-
-    // loginResult.subscribe(result => {
-
-    // })
-    // }
   }
 
   constructor(

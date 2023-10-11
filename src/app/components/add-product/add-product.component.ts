@@ -46,12 +46,7 @@ export class AddProductComponent implements OnInit {
       this.productForm.value.stockAmount!
     );
 
-    this._router.navigateByUrl('login');
-  }
-
-  signOut() {
-    this._loginService.signOut();
-    this._router.navigateByUrl('login');
+    this._router.navigateByUrl('update-products');
   }
 
   updateProduct() {
@@ -66,8 +61,9 @@ export class AddProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productForm.valueChanges.subscribe(result => {
-      this.displayError = undefined;
-    });
+    const user = this._loginService.loggedInUser;
+    if (user === undefined || user.isAdmin !== true) {
+      this._router.navigateByUrl('login');
+    }
   }
 }

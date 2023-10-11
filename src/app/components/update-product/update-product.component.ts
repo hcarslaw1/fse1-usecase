@@ -19,11 +19,6 @@ export class UpdateProductComponent implements OnInit {
   products = this._productService.getProducts();
   showForm = false;
 
-  signOut() {
-    this._loginService.signOut();
-    this._router.navigateByUrl('login');
-  }
-
   addProduct() {
     this._router.navigateByUrl('add-product');
   }
@@ -44,8 +39,9 @@ export class UpdateProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.registerForm.valueChanges.subscribe(result => {
-    //   this.displayError = undefined;
-    // });
+    const user = this._loginService.loggedInUser;
+    if (user === undefined || user.isAdmin !== true) {
+      this._router.navigateByUrl('login');
+    }
   }
 }

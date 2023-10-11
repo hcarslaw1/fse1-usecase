@@ -16,6 +16,16 @@ export class LoginService {
       contactNumber: '0123456789',
       email: 'email@email.com',
     },
+    {
+      id: 2,
+      loginId: 'customer',
+      password: 'test',
+      isAdmin: false,
+      firstName: 'FirstCustomer',
+      lastName: 'LastCustomer',
+      contactNumber: '01234567890',
+      email: 'email1@email.com',
+    },
   ];
 
   loggedInUser: User | undefined = undefined;
@@ -85,18 +95,8 @@ export class LoginService {
       this.loggedInUser = user;
     }
     return user;
-
-    // if (user === undefined) {
-    //   throw new Error('Incorrect login details');
-    // } else {
-    //   return user;
-    // return user.isAdmin
-    //   ? this._http.post('./update-product', { user })
-    //   : this._http.post('./view-products', { user });
-    // }
   };
 
-  // constructor(private _http: HttpClient) {}
   constructor() {}
 }
 

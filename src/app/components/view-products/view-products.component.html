@@ -1,30 +1,23 @@
 <div class="container">
-  <div class="row">
-    <h1 class="col-sm mt-5">View products</h1>
-    <div class="col-sm mt-5">
-      <input
-        (click)="signOut()"
-        type="submit"
-        id="reset"
-        value="Sign Out"
-        class="btn btn-primary" />
+  <div class="row mt-5 mb-2">
+    <div class="col-sm">
+      <h2 class="">View products</h2>
     </div>
-    <input type="text" placeholder="Filter products" #filter />
-    <button
-      class="btn btn-primary"
-      type="button"
-      (click)="filterResults(filter.value)">
-      Search
-    </button>
+    <div class="col-3 pull-right">
+      <input type="text" placeholder="Filter products" #filter class="mr-2" />
+      <button
+        class="btn btn-primary pl-2 pull-right"
+        type="button"
+        (click)="filterResults(filter.value)">
+        Search
+      </button>
+    </div>
   </div>
   <div *ngFor="let product of filteredProducts" class="row">
-    <h3 class="col-md">{{ product.name }}</h3>
-    <p class="">Description: {{ product.description }}</p>
-    <p value="" class="">Price: {{ product.price }}</p>
-    <p class="">Product features: {{ product.features }}</p>
-    <p class="col-sm">Product status: {{ product.status }}</p>
+    <h4 class="col-md mt-3">{{ product.name }}</h4>
+    <p class="mb-0">Description: {{ product.description }}</p>
+    <p class="mb-0">Price: {{ product.price }}</p>
+    <p class="mb-0">Product features: {{ product.features }}</p>
+    <p class="mb-0">Product status: {{ product.status }}</p>
   </div>
-  <!-- <div *ngIf="displayError !== undefined" class="alert alert-danger mt-5">
-        {{ displayError }}
-      </div> -->
 </div>
