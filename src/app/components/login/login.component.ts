@@ -9,10 +9,6 @@ import { LoginService } from 'src/app/services/login-service.service';
   styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
-  // loginForm = new FormGroup({
-  //   username: new FormControl(''),
-  // });
-
   loginForm = this._fb.group({
     username: [''],
     password: [''],

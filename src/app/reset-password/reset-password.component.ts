@@ -13,7 +13,7 @@ export class ResetPasswordComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
   confirmPassword = new FormControl('', [Validators.required]);
 
-  registerForm = this._fb.group({
+  resetForm = this._fb.group({
     username: this.username,
     password: this.password,
     confirmPassword: this.confirmPassword,
@@ -22,25 +22,24 @@ export class ResetPasswordComponent implements OnInit {
   displayError: undefined | string = undefined;
 
   submit() {
-    if (!this.registerForm.valid) {
+    if (!this.resetForm.valid) {
       this.displayError = 'Invalid details';
       return;
     } else if (
-      this.registerForm.value.password !==
-      this.registerForm.value.confirmPassword
+      this.resetForm.value.password !== this.resetForm.value.confirmPassword
     ) {
       this.displayError = 'Passwords do not match';
       return;
     } else if (
-      this._loginService.isLoginIdUnique(this.registerForm.value.username!)
+      this._loginService.isLoginIdUnique(this.resetForm.value.username!)
     ) {
       this.displayError = 'Username must exist';
       return;
     }
 
     this._loginService.resetPassword(
-      this.registerForm.value.username!,
-      this.registerForm.value.password!
+      this.resetForm.value.username!,
+      this.resetForm.value.password!
     );
 
     this._router.navigateByUrl('login');
@@ -53,7 +52,7 @@ export class ResetPasswordComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm.valueChanges.subscribe(result => {
+    this.resetForm.valueChanges.subscribe(result => {
       this.displayError = undefined;
     });
   }

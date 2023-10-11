@@ -43,11 +43,9 @@ export class ProductService {
       status: this.updateStockStatus(stockAmount)!,
       stockAmount,
     } as Product);
-    console.log(this.productStore);
   };
 
   getProducts = () => {
-    console.log(this.productStore);
     return this.productStore;
   };
 

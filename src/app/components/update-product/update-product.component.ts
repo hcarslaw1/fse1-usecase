@@ -28,7 +28,6 @@ export class UpdateProductComponent implements OnInit {
       productName,
       this.productForm.value.stockAmount!
     );
-    this._router.navigateByUrl('update-products');
   };
 
   constructor(

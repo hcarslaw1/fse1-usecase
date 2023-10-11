@@ -76,7 +76,7 @@ export class LoginService {
     email: string
   ) {
     const newUser = {
-      id: this.userStore.length,
+      id: this.userStore.length + 1,
       loginId,
       password,
       isAdmin: false,
