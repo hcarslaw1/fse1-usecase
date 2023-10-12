@@ -5,8 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ViewProductsComponent } from './components/view-products/view-products.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'view-products', component: ViewProductsComponent },
   { path: 'update-products', component: UpdateProductComponent },
   { path: 'add-product', component: AddProductComponent },
-  { path: 'logout', component: LogoutComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
 ];
 

@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ResetPasswordComponent } from './reset-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../services/login-service.service';
+import { LoginService } from '../../services/login-service.service';
 
 describe('ResetPasswordComponent', () => {
   let component: ResetPasswordComponent;

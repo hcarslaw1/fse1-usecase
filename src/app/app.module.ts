@@ -10,9 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ViewProductsComponent } from './components/view-products/view-products.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { LogoutComponent } from './components/logout/logout.component';
 import { RouterModule } from '@angular/router';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ViewProductsComponent,
     UpdateProductComponent,
     AddProductComponent,
-    LogoutComponent,
     ResetPasswordComponent,
   ],
   imports: [
