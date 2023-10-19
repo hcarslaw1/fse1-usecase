@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddProductComponent } from './add-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login-service.service';
 import { ProductService } from 'src/app/services/product-service.service';
 
 describe('AddProductComponent', () => {
@@ -24,7 +23,6 @@ describe('AddProductComponent', () => {
     fixture = TestBed.createComponent(AddProductComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    loginService = TestBed.inject(LoginService);
     productService = TestBed.inject(ProductService);
   });
 
